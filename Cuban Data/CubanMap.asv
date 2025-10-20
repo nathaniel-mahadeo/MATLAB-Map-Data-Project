@@ -1,0 +1,43 @@
+data_raw = readtable('CubanMapData.xlsx');
+data = table2cell(data_raw);
+
+stateData = load('borderdata.mat');
+
+[rows, cols] = size(data);
+
+% Open a new figure and plot the continental United States oulined in
+% black:
+
+figure
+borders('states','k')
+axis tight
+
+hold on
+
+for i = 1:rows
+    sName = lower(data{i,1});
+
+    sValue = data{i,2};
+
+    if sum(strcmp(sName,lower(stateData.places)))
+
+        if sValue < 100
+            bordersm(sName, 'facecolor', 'r')
+
+        elseif sValue < 500
+            bordersm(sName, 'facecolor', 'r')
+
+        elseif sValue < 1000
+            bordersm(sName, 'facecolor', 'r')
+
+        elseif sValue < 2000
+            bordersm(sName, 'facecolor', 'r')
+
+                    elseif sValue < 5000
+            bordersm(sName, 'facecolor', 'r')
+
+                    elseif sValue < 10000
+            bordersm(sName, 'facecolor', 'r')
+
+                    elseif sValue < 20000
+            bordersm(sName, 'facecolor', 'r')
